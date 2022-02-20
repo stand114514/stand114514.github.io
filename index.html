@@ -4,12 +4,19 @@
         <link rel="shortcut icon" href="./static/image/hjhhead.jpg">
         <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
         <title>关于黄基航</title>
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     </head>
     <body background="https://iw233.cn/api/Random.php" style="background-repeat:repeat;background-size:cover;">
-        <button style="background-color: rgb(253, 228, 2)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\恰黄基航.html'">恰黄基航</button>
-        <button style="background-color: rgb(2, 253, 56)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\fly\\niao.html'">飞翔小鸟</button>
-        <button style="background-color: rgb(250, 3, 15)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\hecheng\\index.html'">合成黄基航</button>
-        <h1 style="color:rgb(10, 10, 10);font-size:30px;">笑死，我根本就不会前端</h1>
+        <div>
+            <img class="imgclick" width="50px" height="50px" src=".\\static\\image\\bofang.png">
+            <audio id="playaudio" autoplay="autoplay" loop type="audio/mp3">  
+                <source autoplay src=".\\static\\music\\1w1(Drop).mp3" type="audio/mp3">            
+            </audio>
+            <button style="background-color: rgb(253, 228, 2)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\恰黄基航.html'">恰黄基航</button>
+            <button style="background-color: rgb(2, 253, 56)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\fly\\niao.html'">飞翔小鸟</button>
+            <button style="background-color: rgb(250, 3, 15)" type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='.\\hecheng\\index.html'">合成黄基航</button>
+        </div>
+            <h1 style="color:rgb(10, 10, 10);font-size:30px;">笑死，我根本就不会前端</h1>
         <div style="text-indent:2px; text-size-adjust:100%;background-color: rgba(125, 136, 158, 0.5);">
             <div style="opacity:1;">    
                 <hr>
@@ -49,6 +56,16 @@
             </video> -->
         </div>
     </body>
-
+    <script>
+            /* 实现图片切换 */
+            $(".imgclick").toggle(function() {
+                $(this).attr("src", ".\\static\\image\\bofang.png");
+                document.getElementById('playaudio').play();
+            }, function() {
+                $(this).attr("src", ".\\static\\image\\zanting.png");
+                document.getElementById('playaudio').pause();
+            }).attr("src", ".\\static\\image\\bofang.png");
+            document.getElementById('playaudio').play();
+    </script>
 
 </html>
