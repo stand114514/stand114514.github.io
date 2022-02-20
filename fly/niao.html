@@ -21,6 +21,10 @@
     </style>
 </head>
 <body>
+    <img class="imgclick" width="50px" height="50px" src=".\\static\\image\\bofang.png">
+        <audio id="playaudio" autoplay="autoplay" loop controls type="audio/mp3">  
+            <source autoplay src=".\\static\\music\\1w1(Drop).mp3" type="audio/mp3">            
+        </audio>
     <div id="box">
    <div id="shia">
        <span id="shijian">0</span>s
@@ -48,8 +52,20 @@
           </div>
     </div>
 
-
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+            /* 实现图片切换 */
+    <script>
+         $(".imgclick").toggle(function() {
+                $(this).attr("src", ".\\static\\image\\bofang.png");
+                document.getElementById('playaudio').play();
+            }, function() {
+                $(this).attr("src", ".\\static\\image\\zanting.png");
+                document.getElementById('playaudio').pause();
+            }).attr("src", ".\\static\\image\\bofang.png");
+            document.getElementById('playaudio').play();
+    </script>
+    
     <script>
  
 
