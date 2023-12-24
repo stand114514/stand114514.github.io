@@ -1,0 +1,209 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* 头部 */
+.head {
+    color: white;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+    background-color: #373737;
+    z-index: 10;
+    height: 50px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+.head-left, .head-right{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+}
+.head-right{
+    width: 30px;
+    border-radius: 5px;
+    justify-content: center;
+}
+.head-right:hover{
+    background-color: rgba(255, 255, 255, 0.173);
+}
+
+/* #message*/
+.message-head{
+    color:rgb(255, 255, 255); 
+    background-color: #29292998;
+    height: 100vh;
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+@keyframes blink {  
+    0% { opacity: 1; }  
+    50% { opacity: 0; }  
+    100% { opacity: 1; }  
+}  
+.message-head-content{
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 蒙版 */
+    background-color: #000000a4;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#content{
+    display: flex;
+    justify-content: center;
+    background-color: #2c2c2c;
+    z-index: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.bottom{
+    background-color: #3a3a3a;
+    color: aliceblue;
+    text-align: center;
+    padding: 10px;
+}
+
+/* 标题 */
+:root {
+    --color1:#2363d9;
+    --color2:#27959f;
+    --color3:#ffb006;
+    --color4:#ff4040;
+    --color5:#ff3131;
+}
+.message-head .title{
+    line-height: 100%;
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(225deg,
+        var(--color1) 0%, var(--color1) 9%,
+        transparent 9%,transparent 10%,
+        var(--color2) 10%,var(--color2) 19%,
+        transparent 19%,transparent 20%,
+        var(--color3) 20%,var(--color3) 29%,
+        transparent 29%,transparent 30%,
+        var(--color4) 30%,var(--color4) 39%,
+        transparent 39%,transparent 40%,
+        var(--color5) 40%,var(--color5) 49%,
+        transparent 49%,transparent 50%,
+        var(--color1) 50%,var(--color1) 59%,
+        transparent 59%,transparent 60%,
+        var(--color2) 60%,var(--color2) 69%,
+        transparent 69%,transparent 70%,
+        var(--color3) 70%,var(--color3) 79%,
+        transparent 79%,transparent 80%,
+        var(--color4) 8%,var(--color4) 89%,
+        transparent 9%,transparent 89%,
+        var(--color5) 80%,var(--color5) 99%,
+        transparent 99%
+    );
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 200% 200%;
+    animation: move 4s linear infinite;
+
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.504);
+}
+@keyframes move{
+    0%{
+        background-position: 0px 100%;
+    }
+    100%{
+        background-position: 100% 0px;
+    }
+}
+
+
+/* 文章 */
+.event{
+    width: auto;
+    /* max-width: 600px; */
+    color: aliceblue;
+}
+.event > .title{
+    font-size: 16px;
+    font-weight: bold;
+}
+.content { 
+    color: #c7c7c7; 
+}
+.content > a{
+    color: rgb(66, 139, 255);
+    
+}
+.content > a:hover{
+    color: rgb(137, 182, 255);
+}
+.event > .time{
+    text-align: right;
+    margin-right: 10px;
+    color: rgb(255, 218, 108);
+}
+.event > hr{
+    border: 1px dashed #545454;
+}
+
+/* 侧边栏 */
+.right-box {  
+    margin-top: 50px;
+    position: fixed;  
+    display: flex;
+    width: 200px;  
+    height: 100%;  
+    background-color: #2c2c2c;  
+    /* box-shadow: -5px 0px 3px rgba(0, 0, 0, 0.2); */
+    border-left: 2px solid #363636;  
+    top: 0;
+    right: 0; 
+
+    animation: slideIn 0.5s forwards;
+    transition-timing-function:ease
+}  
+@keyframes slideIn {  
+    0% {  
+      transform: translateX(100%); /* 从右边开始 */  
+    }  
+    100% {  
+      transform: translateX(0); /* 移动到指定位置 */  
+    }  
+}
+@keyframes slideOut {  
+    0% {  
+      transform: translateX(0); /* 从指定位置开始 */  
+    }  
+    100% {  
+      transform: translateX(100%); /* 移动回去 */  
+    }  
+  }
+  /* 选项 */
+.right-box {
+    color: white; 
+}
+.right-box a{
+    display: block;
+    width: 200px;
+    height: 60px;
+    background-color: #2c2c2c;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white; 
+}
+.right-box a:hover{
+    background-color: #464646;
+}
+.right-box h3{ 
+    margin-left: 20px;
+}

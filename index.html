@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="hjh.png">
+        <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
+        <title>黄基航收容所</title>
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div id="app">
+    <!-- 导航栏 -->
+            <div class="head">
+                <div class="head-left">
+                    <img src="hjh.png" height="50px" alt="黄基航">
+                    <span>黄基航收容所</span>
+                </div>
+                <div class="head-right" @click="onOpenSidebar()">
+                    <span v-show="!right_show">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.94971 11.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.94971 23.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.94971 35.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span v-show="right_show">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42 9H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M42 19H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M42 29H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M42 39H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+    <!--内容-->
+            <div id="message-box" >
+                <div class="message-head" :style="backImg">
+                    <div class="message-head-content">
+                        <div>
+                            <h1 class="title">黄基航收容所</h1><br>
+                            <img src="hjh.png" width="100px" height="120px" alt="黄基航">
+                            <h3 >Welcome to HuangJihang's world</h3>
+                            <span style="animation: blink 1s infinite;  ">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <svg width="50" height="50" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M36 12L24 24L12 12" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M36 24L24 36L12 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="content">
+                    <div>
+                        <div v-for="(item,index) in events" class="event" :key="index">
+                            <p class="title">{{index+1}}.{{item.title}}</p>
+                            <p class="content" v-html="item.content"></p>
+                            <p class="time">{{item.time}}</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    Copyright by 2023 Stand
+                </div>
+            </div>
+            <div class="right-box" v-show="right_show" :style="playMode">
+                <div>
+                    <h3>小游戏</h3>
+                    <a href="./fly/niao.html">飞翔小鸟</a>
+                    <a href="./qiahjh/index.html">恰黄基航</a>
+                    <a href="./hecheng/index.html">合成基哥</a>
+                    <h3>其他</h3>
+                    <a href="./newyear/index.html">新年烟花</a>
+                    <a href="do_phone/do_phone.html">电话邀请</a>
+                    <a href="./oldweb/index.html">远古界面</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        const app = new Vue({
+        el:"#app",
+        data:{
+            // 定义数据结构
+            events: [{
+                title:'优化了亿下界面',
+                content:'图片api网站：<a href="https://blog.jixiaob.cn/?post=93">https://blog.jixiaob.cn/?post=93</a>',
+                time:'2023/12/24'
+            },
+            {
+                title:'优化了一下界面',
+                content:'(<a href="./oldweb/index.html">老界面请点我</a>)',
+                time:'2023/1/2'
+            },{
+                title:'添加了"背景音乐"，"合成黄基航小游戏"。',
+                content:'合成黄基航（大西瓜）小游戏源码地址：<br>\
+                    <a href="https://github.com/bullhe4d/bigwatermelon" \
+                    target="_blank">github.com/bullhe4d/bigwatermelon</a>\
+                    <br>\
+                    bgm作者qq:3250574713',
+                time:'2022/2/20'
+            },{
+                title:'添加了随机背景(调用api)',
+                content:'跳转我的github仓库(代码)：<br>\
+                        <a href="https://github.com/stand114514/stand114514.github.io" target="_blank">github.com/stand114514/stand114514.github.io</a>\
+                        <br>\
+                        雷普先辈小游戏原地址(已失效):\<br>\
+                        https://github.com/Xiaohuang257/RapeSenpai',
+                time:'2022/2/12'
+            },{
+                title:'恰黄基航小游戏',
+                content:'这个小游戏，是在别人的基础上做了一点修改，原作者源代码都在github上边，不过他说，31号会把那些文件都删了\
+                        <br>\
+                        <div>开源地址：https://github.com/Xiaohuang257/RapeSenpai</div>\
+                        <br>至于我为什么要做这样一个页面...哈哈，当然是在开发测试HTML啊<br>\
+                        有一说一，这个界面确实挺low哈\
+                        <p >后续将持续维护，欢迎前来建议</p>',
+                time:'2022/1/30'
+            },{
+                title:'黄基航资料',
+                content:'<h3 style="font-size:25px;">早 期 黄 基 航 蹦 迪<br>珍 贵 历 史 资 料.MP4</h4>\
+                    <p>点击图片跳转<br>\
+                        <a href="./index_img/黄基航蹦迪.mp4" target="_blank">\
+                            <img src="./index_img/hjhs.jpg" width="100" height="100">\
+                        </a>\
+                    </p>',
+                time:'未知/未知/未知'
+            }],
+            right_show:false,
+            playMode:{},
+            backImg:{"background-image": "url('https://t.mwm.moe/pc/')"}
+        },
+        created(){
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;  
+            // 检查是否包含手机相关的关键字  
+            if (/Mobi|Android/i.test(userAgent)) {  
+                this.backImg = {"background-image": "url('https://t.mwm.moe/mp')"};  
+            }  
+        },
+        methods:{
+            onOpenSidebar(){
+                if(!this.right_show) {
+                    this.playMode = {'animation': 'slideIn 0.5s forwards'}
+                    this.right_show = !this.right_show
+                }
+                else{
+                    this.playMode = {'animation': 'slideOut 0.5s forwards'}
+                    setTimeout(()=>{
+                        this.right_show = !this.right_show
+                    },500)
+                }
+            }
+        }
+    })
+    </script>
+</html>
