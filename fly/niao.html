@@ -13,10 +13,10 @@
             margin: 0;
             padding: 0;
         }
-
         #box {
             width: 343px;
             height: 480px;
+            /* height: 480px; */
             position: relative;
             overflow: hidden;
         }
@@ -34,7 +34,7 @@
             display: none
         }
 
-        #gameover #btn {
+        #gameover button{
             width: 100px;
             height: 50px;
         }
@@ -77,29 +77,32 @@
 </head>
 
 <body>
-    <div id="box">
-        <div id="shia">
-            <span id="shijian">0</span>s
-        </div>
-        <div id="gameover">
-            <p>游戏结束 </p>
-
-            <button id="btn" onclick="move()">重开</button>
-            <button onclick="window.history.back();">主页</button>
-
-            <p id="">
-                您坚持了 <span id="overtime">0</span>s
-            </p>
-        </div>
-
-
-        <img src="img/bird0.png" id='bird'>
-
-        <div id="bg">
-            <img src="img/bg.jpg" alt="">
-            <img src="img/bg.jpg" alt="">
+    <div style="width: 100vw;height: 100vh;display: flex;justify-content: center;align-items: center;">
+        <div id="box">
+            <div id="shia">
+                <span id="shijian">0</span>s
+            </div>
+            <div id="gameover">
+                <p>游戏结束 </p>
+    
+                <button id="btn" onclick="history.go(0)">重开</button>
+                <button onclick="window.history.back();">主页</button>
+    
+                <p id="">
+                    您坚持了 <span id="overtime">0</span>s
+                </p>
+            </div>
+    
+    
+            <img src="img/bird0.png" id='bird'>
+    
+            <div id="bg">
+                <img src="img/bg.jpg" alt="">
+                <img src="img/bg.jpg" alt="">
+            </div>
         </div>
     </div>
+    
 
     <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <!--     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script> -->
@@ -160,7 +163,6 @@
             speed = -randFn(4, 8)
         }
 
-
         //背景移动
         var bgSpeed = 0
         var bg_move
@@ -171,8 +173,6 @@
                 bgSpeed = 0
             }
         }, 20)
-
-
 
         //添加管道
         function addguanUp() {
@@ -186,7 +186,6 @@
             guanUp.src = "img/down_pipe.png"
             box.appendChild(guanUp)
 
-
             guanDown = document.createElement("img")
             guanDown.className = "guanDown"
             guanDown.style.top = 0
@@ -198,21 +197,10 @@
             box.appendChild(guanDown)
         }
 
-
-
-
         //添加管道
         setadd = setInterval(function () {
             addguanUp()
         }, 500)
-
-
-
-
-
-
-
-
 
         //管子移动
         var speedups = 1
@@ -224,8 +212,6 @@
             birdTop = bird.offsetTop
             birdLeft = bird.offsetLeft
 
-
-
             for (var i = 0; i < ups.length; i++) {
                 ups[i].style.left = ups[i].offsetLeft - speedups + 'px'
                 uptop = ups[i].offsetTop //管道距离
@@ -234,13 +220,9 @@
                 upleft = ups[i].offsetLeft
                 upkuan = ups[i].offsetWidth
 
-
-
                 if (ups[i].offsetLeft < -70) {
                     box.removeChild(ups[i])
                 }
-
-
 
                 if (birdLeft >= upleft && upleft <= upleft + upkuan && birdTop >= uptop && birdTop <= uptop + upgao) {
                     gameover.style.display = "block"
@@ -256,7 +238,6 @@
                 downleft = downs[i].offsetLeft
                 downkuan = downs[i].offsetWidth
 
-
                 if (downs[i].offsetLeft < -70) {
                     box.removeChild(downs[i])
                 }
@@ -265,11 +246,9 @@
                     gameover.style.display = "block"
                 }
 
-
             }
 
         }, 1)
-
 
         //时间
         overtimet = setInterval(function () {
@@ -278,13 +257,6 @@
             overtime.innerHTML = shijian.innerHTML
         }, 1000)
 
-
-
-
-
-        btn.onclick = function () {
-            history.go(0)
-        }
 
         //随机数
         function randFn(min, max) {
