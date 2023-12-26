@@ -39,8 +39,8 @@ body{
     text-align: center;
 
     background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+    background-position: center;
+    transition: all 300ms
 }
 @keyframes blink {  
     0% { opacity: 1; }  
@@ -161,13 +161,13 @@ body{
     margin-top: 50px;
     position: fixed;  
     display: flex;
-    width: 200px;  
-    height: 100%;  
-    background-color: #2c2c2c;  
-    /* box-shadow: -5px 0px 3px rgba(0, 0, 0, 0.2); */
-    border-left: 2px solid #363636;  
+    width: 160px;  
+    height: 100vh;  
+    background-color: #343434;  
+    border-left: 2px solid #434343;  
     top: 0;
     right: 0; 
+    overflow-y:auto; /* 启用滚动 */  
 
     animation: slideIn 0.5s forwards;
     transition-timing-function:ease
@@ -195,18 +195,29 @@ body{
 }
 .right-box a{
     display: block;
-    width: 200px;
-    height: 60px;
-    background-color: #2c2c2c;
-    text-align: center;
-    line-height: 60px;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    padding: 5px;
     font-size: 18px;
     text-decoration: none;
-    color: white; 
+    text-align: center;
+    color: rgb(172, 172, 172); 
+
+    -webkit-user-select: none; /* Chrome, Safari 和 Opera */  
+    -moz-user-select: none; /* Firefox */  
+    -ms-user-select: none; /* IE10+/Edge */  
+    user-select: none; /* 标准语法 */  
 }
-.right-box a:hover{
+.right-box .son:hover{
     background-color: #464646;
 }
-.right-box h3{ 
-    margin-left: 20px;
+.right-box .son{ 
+    background-color: #3a3a3a; 
+}
+.right-box .father{ 
+    background-color: #2c2c2c; 
+}
+.right-box .father:hover{ 
+    color: white;
 }

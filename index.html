@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
     <head>
+        <meta charset="UTF-8">
         <link rel="shortcut icon" href="hjh.png">
         <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
         <title>黄基航收容所</title>
@@ -68,19 +69,13 @@
                 </div>
             </div>
             <div class="right-box" v-show="right_show" :style="playMode">
-                <div>
-                    <h3>小游戏</h3>
-                    <a href="./fly/niao.html">飞翔小鸟</a>
-                    <a href="./qiahjh/index.html">恰黄基航</a>
-                    <a href="./hecheng/index.html">合成基哥</a>
-                    <a href="./mikutap/index.html">MiKuTap音游</a>
-                    <h3>其他</h3>
-                    <a href="./newyear/index.html">新年烟花</a>
-                    <a href="do_phone/do_phone.html">电话邀请</a>
-                    <a href="./onepage/oldpage.html">远古界面</a>
-                    <a href="./Christmas-card/index.html">圣诞卡片</a>
-                    <a href="./onepage/牢大.html">牢大</a>
-                    <a href="./onepage/马+7.html">马+7</a>
+                <div>  
+                    <div v-for="(item, index) in menuItems" :key="index">  
+                        <a class="father" :href="item.href" @click="handleClick(item)">{{ item.name }}</a>
+                        <div v-if="item.children" v-show="item.isOpen">  
+                            <a class="son" :href="child.href" v-for="child in item.children" :key="child.name">{{ child.name }}</a>  
+                        </div>  
+                    </div>  
                 </div>
             </div>
         </div>
@@ -92,48 +87,12 @@
         el:"#app",
         data:{
             // 定义数据结构
-            events: [
-                {
-                    "title": "小改",
-                    "content": "1.屏幕滚动图片放大缩小<br>2.飞翔小鸟重开和画布居中<br>3.新年烟花改回来了<br>4.新增【圣诞卡片】和【miku音游】",
-                    "time": "2023/12/25"
-                },
-                {
-                    "title": "优化了亿下界面",
-                    "content": "图片api网站：<a href=\"https://blog.jixiaob.cn/?post=93\">https://blog.jixiaob.cn/?post=93</a>",
-                    "time": "2023/12/24"
-                },
-                {
-                    "title": "优化了一下界面",
-                    "content": "(<a href=\"./oldweb/index.html\">老界面请点我</a>)",
-                    "time": "2023/1/2"
-                },
-                {
-                    "title": "添加了'背景音乐'，'合成黄基航小游戏'。",
-                    "content": "合成黄基航（大西瓜）小游戏源码地址：<br><a href=\"https://github.com/bullhe4d/bigwatermelon\"target=\"_blank\">github.com/bullhe4d/bigwatermelon</a><br>bgm作者qq: 3250574713",
-                    "time": "2022/2/20"
-                },
-                {
-                    "title": "添加了随机背景(调用api)",
-                    "content": "跳转我的github仓库(代码)：<br><a href=\"https://github.com/stand114514/stand114514.github.io\" target=\"_blank\">github.com/stand114514/stand114514.github.io</a><br>雷普先辈小游戏原地址(已失效):<br>https: //github.com/Xiaohuang257/RapeSenpai",
-                    "time": "2022/2/12"
-                },
-                {
-                    "title": "恰黄基航小游戏",
-                    "content": "这个小游戏，是在别人的基础上做了一点修改，原作者源代码都在github上边，不过他说，31号会把那些文件都删了<br><div>开源地址：https: //github.com/Xiaohuang257/RapeSenpai</div><br>至于我为什么要做这样一个页面...哈哈，当然是在开发测试HTML啊<br>有一说一，这个界面确实挺low哈<p>后续将持续维护，欢迎前来建议</p>",
-                    "time": "2022/1/30"
-                },
-                {
-                    "title": "黄基航资料",
-                    "content": "<h3 style=\"font-size:25px;\">早 期 黄 基 航 蹦 迪<br>珍 贵 历 史 资 料.MP4</h4><p>点击图片跳转<br><a href=\"./index_img/黄基航蹦迪.mp4\" target=\"_blank\"><img src=\"./index_img/hjhs.jpg\" width=\"100\" height=\"100\"></a></p>",
-                    "time": "未知/未知/未知"
-                }
-            ],
+            events: [], menuItems: [],
             right_show:false,
             playMode:{},
             backStyle:{
-                backgroundImage:"url('https://t.mwm.moe/pc/')", 
-                backgroundSize:"120%"
+                // backgroundImage:"url('https://t.mwm.moe/pc/')", 
+                backgroundSize:"cover"
             }
         },
         created(){
@@ -146,23 +105,31 @@
             }  
 
             // 滚动修改背景大小事件
+            let backimg = document.getElementsByClassName("message-head")[0]
             window.addEventListener('scroll', function () {
                 var scrollValue = window.pageYOffset || document.documentElement.scrollTop;
-                var newSize = Math.floor(120 + scrollValue / (window.innerHeight / 100))
+                var newSize = Math.floor(100 + scrollValue / (window.innerHeight / 100))
                 newSize = newSize+"%";
                 // console.log(newSize)
-                //背景图
                 backimg = document.getElementsByClassName("message-head")[0]
                 backimg.style.backgroundSize = newSize
             });
+
             // 获取事件
-            // axios.get('./事件.json')  
-            // .then(response => {  
-            // console.log('成功获取事件数据:', response.data);  
-            // })  
-            // .catch(error => {  
-            // console.error('获取事件数据失败:', error);  
-            // });  
+            axios.get('/events.json')  
+            .then(response => {  
+                this.events = response.data
+                // console.log('成功获取事件数据:', response.data);  
+            })  
+            .catch(error => {console.error('获取事件数据失败:', error)});  
+
+            // 获取菜单
+            axios.get('/menuItems.json')  
+            .then(response => {
+                this.menuItems = response.data;
+                console.log('成功获取事件数据:', response.data);  
+            })
+            .catch(error => {console.error('获取事件数据失败:', error)});  
         },
         methods:{
             onOpenSidebar(){
@@ -176,7 +143,10 @@
                         this.right_show = !this.right_show
                     },500)
                 }
-            }
+            }, handleClick(item) {  
+                // 切换子菜单的展开和收起状态  
+                item.isOpen = !item.isOpen;  
+            }  
         }
     })
     </script>
