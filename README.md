@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://stand114514.github.io/RapeSenpai/index.html"><img src="https://stand114514.github.io/static/image/hjhhead.jpg" width="100" height="100" alt="黄基航收容所"></a>
+  <a href="https://stand114514.github.io/index.html"><img src="./hjh.png" width="100" height="100" alt="黄基航收容所"></a>
 </p>
 <div align="center">
 
