@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="hjh.png">
-    <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
+    <meta name="viewport" content="initial-scale=1, 
+                                    user-scalable=no, 
+                                    minimum-scale=1.0, 
+                                    maximum-scale=1.0, 
+                                    width=device-width,
+                                    initial-scale=1,
+                                    target-density,
+                                    dpi=device-dpi" />
     <title>黄基航收容所</title>
     <link href="index.css" rel="stylesheet" type="text/css">
 </head>
@@ -85,16 +92,23 @@
 <script src="./packges/vue.js"></script>
 <script src="./packges/axios.min.js"></script>
 <script>
-window.onload = ()=> {
-    // 滚动修改背景大小事件
-    let backimg = document.getElementById("back-img")
-    window.addEventListener('scroll', function () {
-        var scrollValue = document.documentElement.scrollTop;
-        // window.pageYOffset已弃用
-        var newSize = Math.floor(100 + scrollValue / (window.innerHeight / 100))
 
-        backimg.style.height = newSize +"vh"
-    });
+function updateImg(backimg){
+    // 更改背景大小
+    var scrollValue = document.documentElement.scrollTop;
+    // window.pageYOffset已弃用
+    var newSize = 1 + scrollValue / window.innerHeight
+
+    backimg.style.height = window.innerHeight*newSize + "px"
+    backimg.style.width = window.innerWidth*newSize + "px"
+}
+
+window.onload = ()=> {
+    let backimg = document.getElementById("back-img")
+    backimg.style.height = "100vh"
+    backimg.style.width = "100vw"
+    window.addEventListener('scroll', ()=> updateImg(backimg)); //滚动事件
+    window.addEventListener('resize', ()=> updateImg(backimg)); //窗口大小改变
 }
 
 const app = new Vue({
@@ -110,7 +124,7 @@ const app = new Vue({
         //设备信息
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;  
 
-        // 检查是否包含手机相关的关键字  
+        //检查是否包含手机相关的关键字  
         if (/Mobi|Android/i.test(userAgent)) {  
             this.backUrl = 'https://t.mwm.moe/mp';   
         }else {
@@ -121,7 +135,7 @@ const app = new Vue({
         axios.get('/events.json')  
         .then(response => {  
             this.events = response.data
-            // console.log('成功获取事件数据:', response.data);  
+            console.log('成功获取事件数据:', response.data);  
         })  
         .catch(error => {console.error('获取事件数据失败:', error)});  
 
@@ -129,7 +143,6 @@ const app = new Vue({
         axios.get('/menuItems.json')  
         .then(response => {
             this.menuItems = response.data;
-            console.log('成功获取事件数据:', response.data);  
         })
         .catch(error => {console.error('获取事件数据失败:', error)});  
     },
