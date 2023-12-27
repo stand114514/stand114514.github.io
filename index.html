@@ -1,153 +1,154 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="shortcut icon" href="hjh.png">
-        <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
-        <title>黄基航收容所</title>
-        <link href="index.css" rel="stylesheet" type="text/css">
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <div id="app">
-    <!-- 导航栏 -->
-            <div class="head">
-                <div class="head-left">
-                    <img src="hjh.png" height="50px" alt="黄基航">
-                    <span>黄基航收容所</span>
-                </div>
-                <div class="head-right" @click="onOpenSidebar()">
-                    <span v-show="!right_show">
-                        <?xml version="1.0" encoding="UTF-8"?>
-                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.94971 11.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.94971 23.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.94971 35.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    <span v-show="right_show">
-                        <?xml version="1.0" encoding="UTF-8"?>
-                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M42 9H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M42 19H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M42 29H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M42 39H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="hjh.png">
+    <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,initial-scale=0.6,target-densitydpi=device-dpi" />
+    <title>黄基航收容所</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="app">
+<!-- 导航栏 -->
+        <div class="head">
+            <div class="head-left">
+                <img src="hjh.png" height="50px" alt="黄基航">
+                <span>黄基航收容所</span>
             </div>
-    <!--内容-->
-            <div id="message-box" >
-                <div class="message-head" :style="backStyle">
-                    <div class="message-head-content">
-                        <div>
-                            <h1 class="title">黄基航收容所</h1><br>
-                            <img src="hjh.png" width="100px" height="120px" alt="黄基航">
-                            <h3 >Welcome to HuangJihang's world</h3>
-                            <span style="animation: blink 1s infinite;  ">
-                                <?xml version="1.0" encoding="UTF-8"?>
-                                <svg width="50" height="50" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M36 12L24 24L12 12" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M36 24L24 36L12 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div id="content">
-                    <div>
-                        <div v-for="(item,index) in events" class="event" :key="index">
-                            <p class="title">{{index+1}}.{{item.title}}</p>
-                            <p class="content" v-html="item.content"></p>
-                            <p class="time">{{item.time}}</p>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    Copyright by 2023 Stand
-                </div>
-            </div>
-            <div class="right-box" v-show="right_show" :style="playMode">
-                <div>  
-                    <div v-for="(item, index) in menuItems" :key="index">  
-                        <a class="father" :href="item.href" @click="handleClick(item)">{{ item.name }}</a>
-                        <div v-if="item.children" v-show="item.isOpen">  
-                            <a class="son" :href="child.href" v-for="child in item.children" :key="child.name">{{ child.name }}</a>  
-                        </div>  
-                    </div>  
-                </div>
+            <div class="head-right" @click="onOpenSidebar()">
+                <span v-if="!right_show">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.94971 11.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.94971 23.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.94971 35.9497H39.9497" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span v-else>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42 9H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M42 19H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M42 29H6" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M42 39H14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
             </div>
         </div>
-    </body>
-    <script src="./packges/vue.js"></script>
-    <script src="./packges/axios.min.js"></script>
-    <script>
-        const app = new Vue({
-        el:"#app",
-        data:{
-            // 定义数据结构
-            events: [], menuItems: [],
-            right_show:false,
-            playMode:{},
-            backStyle:{
-                backgroundImage:"url('https://t.mwm.moe/pc/')", 
-                backgroundSize:"cover"
-            }
-        },
-        created(){
-            //设备信息
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;  
-
-            // 检查是否包含手机相关的关键字  
-            if (/Mobi|Android/i.test(userAgent)) {  
-                this.backStyle.backgroundImage = "url('https://t.mwm.moe/mp')";  
-            }  
-
-            // 滚动修改背景大小事件
-            let backimg = document.getElementsByClassName("message-head")[0]
-            window.addEventListener('scroll', function () {
-                var scrollValue = window.pageYOffset || document.documentElement.scrollTop;
-                var newSize = Math.floor(100 + scrollValue / (window.innerHeight / 100))
-                newSize = newSize+"%";
-                // console.log(newSize)
-                backimg = document.getElementsByClassName("message-head")[0]
-                backimg.style.backgroundSize = newSize
-            });
-
-            // 获取事件
-            axios.get('/events.json')  
-            .then(response => {  
-                this.events = response.data
-                // console.log('成功获取事件数据:', response.data);  
-            })  
-            .catch(error => {console.error('获取事件数据失败:', error)});  
-
-            // 获取菜单
-            axios.get('/menuItems.json')  
-            .then(response => {
-                this.menuItems = response.data;
-                console.log('成功获取事件数据:', response.data);  
-            })
-            .catch(error => {console.error('获取事件数据失败:', error)});  
-        },
-        methods:{
-            onOpenSidebar(){
-                if(!this.right_show) {
-                    this.playMode = {'animation': 'slideIn 0.5s forwards'}
-                    this.right_show = !this.right_show
-                }
-                else{
-                    this.playMode = {'animation': 'slideOut 0.5s forwards'}
-                    setTimeout(()=>{
-                        this.right_show = !this.right_show
-                    },500)
-                }
-            }, handleClick(item) {  
-                // 切换子菜单的展开和收起状态  
-                item.isOpen = !item.isOpen;  
-            }  
-        }
-    })
-    </script>
+<!--内容-->
+        <div id="message-box" >
+            <div class="message-head" >
+                <div class="message-head-content">
+                    <img id="back-img" :src="backUrl" alt="" srcset="">
+                    <div>
+                        <h1 class="title">黄基航收容所</h1><br>
+                        <img src="hjh.png" width="100px" height="120px" alt="黄基航">
+                        <h3 >Welcome to HuangJihang's world</h3>
+                        <span style="animation: blink 1s infinite;  ">
+                            <?xml version="1.0" encoding="UTF-8"?>
+                            <svg width="50" height="50" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M36 12L24 24L12 12" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36 24L24 36L12 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div>
+                    <div v-for="(item,index) in events" class="event" :key="index">
+                        <p class="title">{{index+1}}.{{item.title}}</p>
+                        <p class="content" v-html="item.content"></p>
+                        <p class="time">{{item.time}}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                Copyright by 2023 Stand
+            </div>
+        </div>
+        <div class="right-box" v-show="right_show" :style="playMode">
+            <div>  
+                <div v-for="(item, index) in menuItems" :key="index">  
+                    <a class="father" :href="item.href" @click="handleClick(item)">{{ item.name }}</a>
+                    <div v-if="item.children" v-show="item.isOpen">  
+                        <a class="son" :href="child.href" v-for="child in item.children" :key="child.name">{{ child.name }}</a>  
+                    </div>  
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
+<script src="./packges/vue.js"></script>
+<script src="./packges/axios.min.js"></script>
+<script>
+window.onload = ()=> {
+    // 滚动修改背景大小事件
+    let backimg = document.getElementById("back-img")
+    window.addEventListener('scroll', function () {
+        var scrollValue = document.documentElement.scrollTop;
+        // window.pageYOffset已弃用
+        var newSize = Math.floor(100 + scrollValue / (window.innerHeight / 100))
+
+        backimg.style.height = newSize +"vh"
+    });
+}
+
+const app = new Vue({
+    el:"#app",
+    data:{
+        // 定义数据结构
+        events: [], menuItems: [],
+        right_show:false,
+        playMode:{},
+        backUrl:""
+    },
+    created(){
+        //设备信息
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;  
+
+        // 检查是否包含手机相关的关键字  
+        if (/Mobi|Android/i.test(userAgent)) {  
+            this.backUrl = 'https://t.mwm.moe/mp';   
+        }else {
+            this.backUrl = 'https://t.mwm.moe/pc';   
+        }
+
+        // 获取事件
+        axios.get('/events.json')  
+        .then(response => {  
+            this.events = response.data
+            // console.log('成功获取事件数据:', response.data);  
+        })  
+        .catch(error => {console.error('获取事件数据失败:', error)});  
+
+        // 获取菜单
+        axios.get('/menuItems.json')  
+        .then(response => {
+            this.menuItems = response.data;
+            console.log('成功获取事件数据:', response.data);  
+        })
+        .catch(error => {console.error('获取事件数据失败:', error)});  
+    },
+    methods:{
+        onOpenSidebar(){
+            if(!this.right_show) {
+                this.playMode = {'animation': 'slideIn 0.5s forwards'}
+                this.right_show = !this.right_show
+            }
+            else{
+                this.playMode = {'animation': 'slideOut 0.5s forwards'}
+                setTimeout(()=>{
+                    this.right_show = !this.right_show
+                },500)
+            }
+        }, handleClick(item) {  
+            // 切换子菜单的展开和收起状态  
+            item.isOpen = !item.isOpen;  
+        }  
+    }
+})
+</script>
