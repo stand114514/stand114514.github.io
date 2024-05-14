@@ -161,21 +161,6 @@
             } else {
                 this.backUrl = 'https://t.mwm.moe/pc';
             }
-
-            // 获取事件
-            axios.get('/events.json')
-                .then(response => {
-                    this.events = response.data
-                    console.log('成功获取事件数据:', response.data);
-                })
-                .catch(error => { console.error('获取事件数据失败:', error) });
-
-            // 获取菜单
-            axios.get('/menuItems.json')
-                .then(response => {
-                    this.menuItems = response.data;
-                })
-                .catch(error => { console.error('获取事件数据失败:', error) });
         },
         methods: {
             onOpenSidebar() {
@@ -201,6 +186,21 @@
                     var element = document.getElementById("loadback");
                     element.style.display = "none"; // 隐藏元素
                 }, 1000);
+
+                // 获取事件
+                axios.get('/events.json')
+                    .then(response => {
+                        this.events = response.data
+                        console.log('成功获取事件数据:', response.data);
+                    })
+                    .catch(error => { console.error('获取事件数据失败:', error) });
+
+                // 获取菜单
+                axios.get('/menuItems.json')
+                    .then(response => {
+                        this.menuItems = response.data;
+                    })
+                    .catch(error => { console.error('获取事件数据失败:', error) });
             }
         }
     })
