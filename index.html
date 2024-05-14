@@ -32,7 +32,7 @@
             <div class="text">加载中...</div>
         </div>
     </div>
-    <div id="app">
+    <div id="app" style="display:none">
         <!-- 导航栏 -->
         <div class="head">
             <div class="head-left">
@@ -150,8 +150,6 @@
             backUrl: ""
         },
         created() {
-            //开始先隐藏，等加载完再显示
-            document.getElementById("app").style.display = "none";
             //设备信息
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -161,6 +159,21 @@
             } else {
                 this.backUrl = 'https://t.mwm.moe/pc';
             }
+
+            // 获取事件
+            axios.get('/events.json')
+                    .then(response => {
+                        this.events = response.data
+                        console.log('成功获取事件数据:', response.data);
+                    })
+                    .catch(error => { console.error('获取事件数据失败:', error) });
+
+            // 获取菜单
+            axios.get('/menuItems.json')
+                .then(response => {
+                    this.menuItems = response.data;
+                })
+                .catch(error => { console.error('获取事件数据失败:', error) });
         },
         methods: {
             onOpenSidebar() {
@@ -187,20 +200,6 @@
                     element.style.display = "none"; // 隐藏元素
                 }, 1000);
 
-                // 获取事件
-                axios.get('/events.json')
-                    .then(response => {
-                        this.events = response.data
-                        console.log('成功获取事件数据:', response.data);
-                    })
-                    .catch(error => { console.error('获取事件数据失败:', error) });
-
-                // 获取菜单
-                axios.get('/menuItems.json')
-                    .then(response => {
-                        this.menuItems = response.data;
-                    })
-                    .catch(error => { console.error('获取事件数据失败:', error) });
             }
         }
     })
