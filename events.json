@@ -1,12 +1,16 @@
 [   
     {
         "title":"小+",
+        "content":"底部更新友链等，优化了一些东西",
+        "time":"2024/05/24"
+    },{
+        "title":"小+",
         "content":"页面加载动画：<a href=\"https://uiverse.io/jeremyssocial/ugly-bullfrog-62\">代码来源</a>",
-        "time":"2024/5/14"
+        "time":"2024/05/14"
     },{
         "title":"小+",
         "content":"添加了3d卡片：<a href=\"https://zhuanlan.zhihu.com/p/669943444\">代码来源</a>",
-        "time":"2024/1/1"
+        "time":"2024/01/01"
     },
     {
         "title": "小改",
@@ -29,22 +33,22 @@
     {
         "title": "优化了一下界面",
         "content": "(<a href=\"./onepage/oldpage.html\">老界面请点我</a>)",
-        "time": "2023/1/2"
+        "time": "2023/01/02"
     },
     {
         "title": "添加了'背景音乐'，'合成黄基航小游戏'。",
         "content": "合成黄基航（大西瓜）小游戏源码地址：<br><a href=\"https://github.com/bullhe4d/bigwatermelon\"target=\"_blank\">github.com/bullhe4d/bigwatermelon</a><br>bgm作者qq: 3250574713",
-        "time": "2022/2/20"
+        "time": "2022/02/20"
     },
     {
         "title": "添加了随机背景(调用api)",
         "content": "跳转我的github仓库(代码)：<br><a href=\"https://github.com/stand114514/stand114514.github.io\" target=\"_blank\">github.com/stand114514/stand114514.github.io</a><br>雷普先辈小游戏原地址(已失效):<br>https: //github.com/Xiaohuang257/RapeSenpai",
-        "time": "2022/2/12"
+        "time": "2022/02/12"
     },
     {
         "title": "恰黄基航小游戏",
         "content": "这个小游戏，是在别人的基础上做了一点修改，原作者源代码都在github上边，不过他说，31号会把那些文件都删了<br><div>开源地址：https: //github.com/Xiaohuang257/RapeSenpai</div><br>至于我为什么要做这样一个页面...哈哈，当然是在开发测试HTML啊<br>有一说一，这个界面确实挺low哈<p>后续将持续维护，欢迎前来建议</p>",
-        "time": "2022/1/30"
+        "time": "2022/01/30"
     },
     {
         "title": "黄基航资料",

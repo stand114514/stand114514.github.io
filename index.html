@@ -94,12 +94,36 @@
                         <p class="title">{{index+1}}.{{item.title}}</p>
                         <p class="content" v-html="item.content"></p>
                         <p class="time">{{item.time}}</p>
-                        <hr>
+                        <hr v-show="index < events.length - 1">
                     </div>
                 </div>
             </div>
             <div class="bottom">
-                Copyright by 2023 Stand
+                <div>
+                    <div class="item">
+                        <ul>
+                            <li><b>友情链接</b></li>
+                            <li><a href="https://github.com/stand114514/stand114514.github.io">本项目仓库</a></li>
+                            <li><a href="https://github.com/SusakrTyan/SuskrTyan/">SuskrTyan</a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul>
+                            <li><b>有点意思</b></li>
+                            <li><a href="https://cat-bounce.com/">猫弹跳</a></li>
+                            <li><a href="https://cursoreffects.com/">逆天光标</a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul>
+                            <li><b>技术支持</b></li>
+                            <li><a href="https://cn.vuejs.org/">Vue</a></li>
+                            <li><a href="https://github.com/">Github</a></li>
+                            <li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
+                        </ul>
+                    </div>
+                </div>
+                Copyright © 2023 Stand
             </div>
         </div>
         <div class="right-box" v-show="right_show" :style="playMode">
@@ -157,23 +181,24 @@
             if (/Mobi|Android/i.test(userAgent)) {
                 this.backUrl = 'https://t.mwm.moe/mp';
             } else {
-                this.backUrl = 'https://t.mwm.moe/pc';
+                // this.backUrl = 'https://t.mwm.moe/pc';
+                this.backUrl = 'hjh.png';
             }
 
             // 获取事件
             axios.get('/events.json')
-                    .then(response => {
-                        this.events = response.data
-                        console.log('成功获取事件数据:', response.data);
-                    })
-                    .catch(error => { console.error('获取事件数据失败:', error) });
+                .then(response => {
+                    this.events = response.data
+                    console.log('成功获取事件数据:', response.data);
+                })
+                .catch(error => { console.error('获取事件数据失败:', error) });
 
             // 获取菜单
             axios.get('/menuItems.json')
                 .then(response => {
                     this.menuItems = response.data;
                 })
-                .catch(error => { console.error('获取事件数据失败:', error) });
+                .catch(error => { console.error('获取侧边栏数据失败:', error) });
         },
         methods: {
             onOpenSidebar() {
@@ -195,7 +220,7 @@
                 var app = document.getElementById("app");
                 app.style.animation = "fade-in 1s ease-in-out both";
                 app.style.display = "";
-                setTimeout(()=>{
+                setTimeout(() => {
                     var element = document.getElementById("loadback");
                     element.style.display = "none"; // 隐藏元素
                 }, 1000);

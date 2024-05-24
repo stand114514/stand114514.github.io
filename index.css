@@ -1,337 +1,422 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes fade-in {
-    0% {
-      opacity: 0; /* 动画开始时透明度为0 */
-    }
-    100% {
-      opacity: 1; /* 动画结束时透明度为1 */
-    }
+  0% {
+    opacity: 0;
+    /* 动画开始时透明度为0 */
   }
+
+  100% {
+    opacity: 1;
+    /* 动画结束时透明度为1 */
+  }
+}
 
 /* 头部 */
 .head {
-    color: white;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    top: 0px;
-    background-color: #373737;
-    z-index: 10;
-    height: 50px;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  top: 0px;
+  background-color: #373737;
+  z-index: 10;
+  height: 50px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
-.head-left, .head-right{
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    font-size: 20px;
+
+.head-left,
+.head-right {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 20px;
 }
-.head-right{
-    width: 30px;
-    border-radius: 5px;
-    justify-content: center;
+
+.head-right {
+  width: 30px;
+  border-radius: 5px;
+  justify-content: center;
 }
-.head-right:hover{
-    background-color: rgba(255, 255, 255, 0.173);
+
+.head-right:hover {
+  background-color: rgba(255, 255, 255, 0.173);
 }
 
 /* #message*/
-.message-box{
-    width: 100vw;
-    background-color: #2c2c2c;
-}
-.message-head{
-    color:rgb(255, 255, 255); 
-    background-color: #29292998;
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden; /* 隐藏超出容器的内容 */  
-}
-@keyframes blink {  
-    0% { opacity: 1; }  
-    50% { opacity: 0; }  
-    100% { opacity: 1; }  
-}  
-.message-head-content{
-    height: 100vh; 
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* 蒙版 */
-    background-color: #00000050;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden; /* 隐藏超出容器的内容 */  
-}
-.message-head-content > #back-img{
-    position: fixed;
-    z-index: -1;
-    transition: all 100ms;
-    object-fit: cover;
-}
-#content{
-    display:flex;
-    justify-content: center;
-    background-color: #2c2c2c;
-    z-index: 1;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.bottom{
-    background-color: #3a3a3a;
-    color: aliceblue;
-    text-align: center;
-    padding: 10px;
+.message-box {
+  width: 100vw;
+  background-color: #2c2c2c;
 }
 
+.message-head {
+  color: rgb(255, 255, 255);
+  background-color: #29292998;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  /* 隐藏超出容器的内容 */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.message-head-content {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 蒙版 */
+  background-color: #00000050;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  /* 隐藏超出容器的内容 */
+}
+
+.message-head-content>#back-img {
+  position: fixed;
+  z-index: -1;
+  transition: all 100ms;
+  object-fit: cover;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  background-color: #2c2c2c;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bottom {
+  background-color: #3a3a3a;
+  color: aliceblue;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/*底部*/
+.bottom>div {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+}
+
+.bottom>div>.item {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 或 'center' 以居中对齐 */
+  text-align: left;
+  margin-bottom: 30px;
+}
+.bottom li {
+  list-style: none;
+  margin-top: 10px;
+}
+.bottom a {
+  text-decoration: none;
+  color: rgb(216, 216, 216);
+}
+
+.bottom a:hover {
+  text-decoration: underline  dashed 1px;
+  color: rgb(255, 157, 157);
+}
 
 /* 标题 */
 :root {
-    --color1:#2363d9;
-    --color2:#27959f;
-    --color3:#ffb006;
-    --color4:#ff7940;
-    --color5:#ff3131;
+  --color1: #2363d9;
+  --color2: #27959f;
+  --color3: #ffb006;
+  --color4: #ff7940;
+  --color5: #ff3131;
 }
-.message-head .title{
-    line-height: 100%;
-    font-size: 50px;
-    font-weight: bold;
-    background: linear-gradient(225deg,
-        var(--color1) 0%, var(--color1) 9%,
-        transparent 9%,transparent 10%,
-        var(--color2) 10%,var(--color2) 19%,
-        transparent 19%,transparent 20%,
-        var(--color3) 20%,var(--color3) 29%,
-        transparent 29%,transparent 30%,
-        var(--color4) 30%,var(--color4) 39%,
-        transparent 39%,transparent 40%,
-        var(--color5) 40%,var(--color5) 49%,
-        transparent 49%,transparent 50%,
-        var(--color1) 50%,var(--color1) 59%,
-        transparent 59%,transparent 60%,
-        var(--color2) 60%,var(--color2) 69%,
-        transparent 69%,transparent 70%,
-        var(--color3) 70%,var(--color3) 79%,
-        transparent 79%,transparent 80%,
-        var(--color4) 8%,var(--color4) 89%,
-        transparent 9%,transparent 89%,
-        var(--color5) 80%,var(--color5) 99%,
-        transparent 99%
-    );
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-size: 200% 200%;
-    animation: move 4s linear infinite;
 
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.504);
+.message-head .title {
+  line-height: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  background: linear-gradient(225deg,
+      var(--color1) 0%, var(--color1) 9%,
+      transparent 9%, transparent 10%,
+      var(--color2) 10%, var(--color2) 19%,
+      transparent 19%, transparent 20%,
+      var(--color3) 20%, var(--color3) 29%,
+      transparent 29%, transparent 30%,
+      var(--color4) 30%, var(--color4) 39%,
+      transparent 39%, transparent 40%,
+      var(--color5) 40%, var(--color5) 49%,
+      transparent 49%, transparent 50%,
+      var(--color1) 50%, var(--color1) 59%,
+      transparent 59%, transparent 60%,
+      var(--color2) 60%, var(--color2) 69%,
+      transparent 69%, transparent 70%,
+      var(--color3) 70%, var(--color3) 79%,
+      transparent 79%, transparent 80%,
+      var(--color4) 8%, var(--color4) 89%,
+      transparent 9%, transparent 89%,
+      var(--color5) 80%, var(--color5) 99%,
+      transparent 99%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 200% 200%;
+  animation: move 4s linear infinite;
+
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.504);
 }
-@keyframes move{
-    0%{
-        background-position: 0px 100%;
-    }
-    100%{
-        background-position: 100% 0px;
-    }
+
+@keyframes move {
+  0% {
+    background-position: 0px 100%;
+  }
+
+  100% {
+    background-position: 100% 0px;
+  }
 }
 
 
 /* 文章 */
-.event{
-    margin: 0 auto;
-    max-width: 600px;
-    color: aliceblue;
+.event {
+  margin: 0 auto;
+  max-width: 600px;
+  color: aliceblue;
 }
-.event > .title{
-    font-size: 16px;
-    font-weight: bold;
+
+.event>.title {
+  font-size: 16px;
+  font-weight: bold;
 }
-.content { 
-    color: #c7c7c7; 
+
+.content {
+  color: #c7c7c7;
 }
-.content > a{
-    color: rgb(66, 139, 255);
+
+.content>a {
+  color: rgb(106, 163, 255);
 }
-.content > a:hover{
-    color: rgb(137, 182, 255);
+
+.content>a:hover {
+  color: rgb(137, 182, 255);
 }
-.event > .time{
-    text-align: right;
-    margin-right: 10px;
-    color: rgb(255, 218, 108);
+
+.event>.time {
+  text-align: right;
+  margin-right: 10px;
+  color: rgb(209, 123, 123);
 }
-.event > hr{
-    border: 1px dashed #545454;
+
+.event>hr {
+  border: 1px dashed #545454;
 }
 
 
 
 /* 侧边栏 */
-.right-box {  
-    margin-top: 50px;
-    position: fixed;  
-    display: flex;
-    width: 160px;  
-    height: 100vh;  
-    background-color: #343434;  
-    border-left: 2px solid #434343;  
-    top: 0;
-    right: 0; 
-    overflow-y:auto; /* 启用滚动 */  
+.right-box {
+  margin-top: 50px;
+  position: fixed;
+  display: flex;
+  width: 160px;
+  height: 100vh;
+  background-color: #343434;
+  border-left: 2px solid #434343;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+  /* 启用滚动 */
 
-    animation: slideIn 0.5s forwards;
-    transition-timing-function:ease
-}  
-@keyframes slideIn {  
-    0% {  
-      transform: translateX(100%); /* 从右边开始 */  
-    }  
-    100% {  
-      transform: translateX(0); /* 移动到指定位置 */  
-    }  
+  animation: slideIn 0.5s forwards;
+  transition-timing-function: ease
 }
-@keyframes slideOut {  
-    0% {  
-      transform: translateX(0); /* 从指定位置开始 */  
-    }  
-    100% {  
-      transform: translateX(100%); /* 移动回去 */  
-    }  
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    /* 从右边开始 */
   }
 
-  /* 选项 */
-.right-box {
-    color: white; 
+  100% {
+    transform: translateX(0);
+    /* 移动到指定位置 */
+  }
 }
-.right-box a{
-    display: block;
-    width: 160px;
-    height: 50px;
-    line-height: 50px;
-    padding: 5px;
-    font-size: 18px;
-    text-decoration: none;
-    text-align: center;
-    color: rgb(172, 172, 172); 
 
-    -webkit-user-select: none; /* Chrome, Safari 和 Opera */  
-    -moz-user-select: none; /* Firefox */  
-    -ms-user-select: none; /* IE10+/Edge */  
-    user-select: none; /* 标准语法 */  
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    /* 从指定位置开始 */
+  }
+
+  100% {
+    transform: translateX(100%);
+    /* 移动回去 */
+  }
 }
-.right-box .son:hover{
-    background-color: #464646;
+
+/* 选项 */
+.right-box {
+  color: white;
 }
-.right-box .son{ 
-    background-color: #3a3a3a; 
+
+.right-box a {
+  display: block;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  padding: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(172, 172, 172);
+
+  -webkit-user-select: none;
+  /* Chrome, Safari 和 Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* 标准语法 */
 }
-.right-box .father{ 
-    background-color: #2c2c2c; 
+
+.right-box .son:hover {
+  background-color: #464646;
 }
-.right-box .father:hover{ 
-    color: white;
+
+.right-box .son {
+  background-color: #3a3a3a;
+}
+
+.right-box .father {
+  background-color: #2c2c2c;
+}
+
+.right-box .father:hover {
+  color: white;
 }
 
 
 /* 加载动画 */
 @keyframes blinkCursor {
-    50% {
-      border-right-color: transparent;
-    }
+  50% {
+    border-right-color: transparent;
   }
-  
-  @keyframes typeAndDelete {
-    0%,
-    10% {
-      width: 0;
-    }
-    45%,
-    55% {
-      width: 6.2em;
-    } /* adjust width based on content */
-    90%,
-    100% {
-      width: 0;
-    }
+}
+
+@keyframes typeAndDelete {
+
+  0%,
+  10% {
+    width: 0;
   }
-  
-  .terminal-loader {
-    border: 0.1em solid #333;
-    background-color: #1a1a1a;
-    color: #0f0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1em;
-    padding: 1.5em 1em;
-    width: 12em;
-    margin: 100px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 100px;
+
+  45%,
+  55% {
+    width: 6.2em;
   }
-  
-  .terminal-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1.5em;
-    background-color: #333;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    padding: 0 0.4em;
-    box-sizing: border-box;
+
+  /* adjust width based on content */
+  90%,
+  100% {
+    width: 0;
   }
-  
-  .terminal-controls {
-    float: right;
-  }
-  
-  .control {
-    display: inline-block;
-    width: 0.6em;
-    height: 0.6em;
-    margin-left: 0.4em;
-    border-radius: 50%;
-    background-color: #777;
-  }
-  
-  .control.close {
-    background-color: #e33;
-  }
-  
-  .control.minimize {
-    background-color: #ee0;
-  }
-  
-  .control.maximize {
-    background-color: #0b0;
-  }
-  
-  .terminal-title {
-    float: left;
-    line-height: 1.5em;
-    color: #eee;
-  }
-  
-  .text {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.2em solid green; /* Cursor */
-    animation: typeAndDelete 4s steps(11) infinite,
-      blinkCursor 0.5s step-end infinite alternate;
-    margin-top: 1.5em;
-  }
-  
+}
+
+.terminal-loader {
+  border: 0.1em solid #333;
+  background-color: #1a1a1a;
+  color: #0f0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  padding: 1.5em 1em;
+  width: 12em;
+  margin: 100px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+.terminal-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5em;
+  background-color: #333;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0 0.4em;
+  box-sizing: border-box;
+}
+
+.terminal-controls {
+  float: right;
+}
+
+.control {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.4em;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+.control.close {
+  background-color: #e33;
+}
+
+.control.minimize {
+  background-color: #ee0;
+}
+
+.control.maximize {
+  background-color: #0b0;
+}
+
+.terminal-title {
+  float: left;
+  line-height: 1.5em;
+  color: #eee;
+}
+
+.text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.2em solid green;
+  /* Cursor */
+  animation: typeAndDelete 4s steps(11) infinite,
+    blinkCursor 0.5s step-end infinite alternate;
+  margin-top: 1.5em;
+}
