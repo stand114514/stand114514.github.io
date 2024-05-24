@@ -117,7 +117,7 @@ body {
 }
 
 /*底部*/
-.bottom>div {
+.bottom > div {
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -126,7 +126,7 @@ body {
   align-items: start;
 }
 
-.bottom>div>.item {
+.bottom > div > .item {
   width: 160px;
   display: flex;
   flex-direction: column;
@@ -229,13 +229,13 @@ body {
   color: rgb(137, 182, 255);
 }
 
-.event>.time {
+.event > .time {
   text-align: right;
   margin-right: 10px;
   color: rgb(209, 123, 123);
 }
 
-.event>hr {
+.event > hr {
   border: 1px dashed #545454;
 }
 
