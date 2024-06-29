@@ -1,0 +1,102 @@
+#messages {
+    --info-color: rgb(144, 144, 144);
+    --info-back-color: rgb(233, 233, 233);
+
+    --sucess-color: #5a9e37;
+    --sucess-back-color: #e1f3d8;
+
+    --warning-color: #ff9829;
+    --warning-back-color: #ffebd1;
+
+    --error-color: #e63c3c;
+    --error-back-color: #fde6e6;
+}
+
+#messages .message {
+    margin: auto;
+    width: 300px;
+    position: relative;
+    visibility: visible;
+
+    color: var(--info-color);
+    background-color: var(--info-back-color);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 100;
+    margin-top: 10px;
+
+    transition: 0.5s;
+
+    -webkit-user-select: none; /* Safari 和 Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* 标准属性 */
+}
+
+#messages .message .message-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+#messages .message>.message-close-btn:hover,
+#messages .message>.message-close-btn:active {
+    color: #909399;
+}
+
+#messages .message span {
+    font-size: 14px;
+}
+
+#messages .message.sucess {
+    color: var(--sucess-color);
+    background-color: var(--sucess-back-color);
+}
+
+#messages .message.warning {
+    color: var(--warning-color);
+    background-color: var(--warning-back-color);
+}
+
+#messages .message.error {
+    color: var(--error-color);
+    background-color: var(--error-back-color);
+}
+
+@keyframes leave {
+    0% {
+        transform: translateY(0);
+        z-index: 9;
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+@keyframes join {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 所有msg的容器 */
+#messages {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
