@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" type="image/x-icon">
+    <title>Googleverify</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="main-head">
+        <div style="font-size: large;font-weight: bold;color: var(--main-color);">孤狗验证</div>
+        <div class="change-btn" onclick="onOpenSet()">
+            修改内容
+            <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M36.686 15.171C37.9364 16.9643 38.8163 19.0352 39.2147 21.2727H44V26.7273H39.2147C38.8163 28.9648 37.9364 31.0357 36.686 32.829L40.0706 36.2137L36.2137 40.0706L32.829 36.686C31.0357 37.9364 28.9648 38.8163 26.7273 39.2147V44H21.2727V39.2147C19.0352 38.8163 16.9643 37.9364 15.171 36.686L11.7863 40.0706L7.92939 36.2137L11.314 32.829C10.0636 31.0357 9.18372 28.9648 8.78533 26.7273H4V21.2727H8.78533C9.18372 19.0352 10.0636 16.9643 11.314 15.171L7.92939 11.7863L11.7863 7.92939L15.171 11.314C16.9643 10.0636 19.0352 9.18372 21.2727 8.78533V4H26.7273V8.78533C28.9648 9.18372 31.0357 10.0636 32.829 11.314L36.2137 7.92939L40.0706 11.7863L36.686 15.171Z"
+                    fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" />
+                <path
+                    d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z"
+                    fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="change-btn" onclick="onReloadVerify()">
+            恢复未验证
+            <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M42 8V24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 24L6 40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M42 24C42 14.0589 33.9411 6 24 6C18.9145 6 14.3216 8.10896 11.0481 11.5M6 24C6 33.9411 14.0589 42 24 42C28.8556 42 33.2622 40.0774 36.5 36.9519"
+                    stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+    <div class="verify-box">
+        <div class="verify-check-box">
+            <!-- 加载动画 -->
+            <div>
+                <div class="spinner close"></div>
+            </div>
+            <div class="tick-box close">
+                <?xml version="1.0" encoding="UTF-8"?><svg width="26" height="26" viewBox="0 0 48 48" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path class="tick" d="M43 11L16.875 37L5 25.1818" stroke="#20af46" stroke-width="6"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div class="verify-check-box-border" onclick="onOpenverify()"></div>
+            <!-- 验证层 -->
+            <div class="verify-layer close">
+                <div class="head">
+                    <div>请选择所有包含</div>
+                    <div id="thing" style="font-weight: bold;font-size: 30px;">Stand</div>
+                    <div>的图片。</div>
+                    <div style="font-size: 14px;">在没有新图片可以点按后，请点击"验证"。</div>
+                </div>
+                <div class="imgs">
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                    <div class="image-box">
+                        <img class="img" src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+                        <img class="checked-ico" width="24px" height="24px" src="./imgs/check-one.png" alt="">
+                    </div>
+                </div>
+                <span id="error" style="display: none;">请选择图片...</span>
+                <div class="bottom">
+                    <div class="icos">
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M36.7279 36.7279C33.4706 39.9853 28.9706 42 24 42C14.0589 42 6 33.9411 6 24C6 14.0589 14.0589 6 24 6C28.9706 6 33.4706 8.01472 36.7279 11.2721C38.3859 12.9301 42 17 42 17"
+                                stroke="#9b9b9b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M42 8V17H33" stroke="#9b9b9b" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42 30V24.4615C42 14.2655 33.9411 6 24 6C14.0589 6 6 14.2655 6 24.4615V30"
+                                stroke="#9b9b9b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M34 32C34 29.7909 35.7909 28 38 28H42V42H38C35.7909 42 34 40.2091 34 38V32Z"
+                                fill="#9b9b9b" stroke="#9b9b9b" stroke-width="4" stroke-linejoin="round" />
+                            <path d="M42 32H44C45.1046 32 46 32.8954 46 34V36C46 37.1046 45.1046 38 44 38H42V32Z"
+                                fill="#9b9b9b" />
+                            <path d="M6 32H4C2.89543 32 2 32.8954 2 34V36C2 37.1046 2.89543 38 4 38H6V32Z"
+                                fill="#9b9b9b" />
+                            <path d="M6 28H10C12.2091 28 14 29.7909 14 32V38C14 40.2091 12.2091 42 10 42H6V28Z"
+                                fill="#9b9b9b" stroke="#9b9b9b" stroke-width="4" stroke-linejoin="round" />
+                        </svg>
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M24 44C29.5228 44 34.5228 41.7614 38.1421 38.1421C41.7614 34.5228 44 29.5228 44 24C44 18.4772 41.7614 13.4772 38.1421 9.85786C34.5228 6.23858 29.5228 4 24 4C18.4772 4 13.4772 6.23858 9.85786 9.85786C6.23858 13.4772 4 18.4772 4 24C4 29.5228 6.23858 34.5228 9.85786 38.1421C13.4772 41.7614 18.4772 44 24 44Z"
+                                fill="none" stroke="#9b9b9b" stroke-width="4" stroke-linejoin="round" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24 37C25.3807 37 26.5 35.8807 26.5 34.5C26.5 33.1193 25.3807 32 24 32C22.6193 32 21.5 33.1193 21.5 34.5C21.5 35.8807 22.6193 37 24 37Z"
+                                fill="#9b9b9b" />
+                            <path d="M24 12V28" stroke="#9b9b9b" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <button onclick="onCheckverify()">验证</button>
+                </div>
+                <div class="triangle triangle_bg"></div>
+                <div class="triangle triangle_border"></div>
+            </div>
+        </div>
+        <div style="flex-grow: 1;">
+            <span id="validation">进行人机身份验证</span>
+        </div>
+        <div class="ico">
+            <img src="./imgs/8b98c0e2c4d5d492780d4fe891a734e9.jpg" alt="">
+            <div>
+                <span>By Stand</span>
+                <br>
+                <a class="rule" href="https://github.com/stand114514/stand114514.github.io/gugo-verify">网页源码</a>
+            </div>
+        </div>
+    </div>
+    <div class="setting" style="display: none;">
+        <div style="position: relative;">
+            <div style="color: white;">
+                <h2>设置</h2>
+                <p>输入后点击空白处更新</p>
+                <span class="close-btn" onclick="onCloseSet()">×</span>
+            </div>
+            <br>
+            <div>
+                <label for="validation">验证语</label>
+                <input onchange="onChangeValidation()" type="text" name="validation" placeholder="我是人类" id="">
+            </div>
+            <div>
+                <label for="thing">验证事物</label>
+                <input onchange="onChangeThing()" type="text" name="thing" id="" placeholder="猫、摩托车">
+            </div>
+            <div class="file-inputs">
+                <div>
+                    <label for="img1">图1</label>
+                    <input type="file" name="img1" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img2">图2</label>
+                    <input type="file" name="img2" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img3">图3</label>
+                    <input type="file" name="img3" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img4">图4</label>
+                    <input type="file" name="img4" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img5">图5</label>
+                    <input type="file" name="img5" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img6">图6</label>
+                    <input type="file" name="img6" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img7">图7</label>
+                    <input type="file" name="img7" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img8">图8</label>
+                    <input type="file" name="img8" id="" accept="image/*">
+                </div>
+                <div>
+                    <label for="img9">图9</label>
+                    <input type="file" name="img9" id="" accept="image/*">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let verifyLayerEl, errorEl, spinnerEl, tickBoxEl, checkBoxEl, settingEl;
+    let validationEl, thingEl;
+    let chooseNum = 0;
+    window.onload = () => {
+        verifyLayerEl = document.querySelector(".verify-layer");
+        spinnerEl = document.querySelector(".spinner");
+        tickBoxEl = document.querySelector(".tick-box");
+        checkBoxEl = document.querySelector(".verify-check-box-border");
+        errorEl = document.getElementById("error");
+        settingEl = document.querySelector(".setting");
+
+        // 修改元素
+        validationEl = document.getElementById("validation");
+        thingEl = document.getElementById("thing");
+
+        var imgs = document.querySelectorAll(".verify-layer .imgs .img");
+        for (var img of imgs) {
+            img.addEventListener("click", onClickImg);
+        }
+
+        // 修改图片
+        let fileInputs = document.querySelectorAll('.file-inputs input');
+        for (let i in fileInputs) {
+            var fileInput = fileInputs[i];
+            fileInput.onchange = (event) => onChangeImg(event, i);
+        }
+    }
+
+    // 打开验证层
+    const onOpenverify = () => {
+        event.stopPropagation(); //阻止冒泡
+
+        // 如果没打开才执行后面的操作
+        if (!verifyLayerEl.classList.contains("close")) return;
+
+        checkBoxEl.classList.add("close");
+        spinnerEl.classList.remove("close");
+
+        setTimeout(() => {
+            checkBoxEl.classList.remove("close");
+            spinnerEl.classList.add("close");
+            verifyLayerEl.classList.remove("close");
+            window.addEventListener("click", onCloseverifyByBody);
+        }, 1000);
+    }
+
+    const onCloseverifyByBody = (event) => {
+        // 检查 event.target 是否为 verifyLayerEl 元素或其子元素
+        if (verifyLayerEl.contains(event.target)) {
+            return;
+        }
+        closeverify();
+    }
+
+    // 检查是否选择
+    const onCheckverify = () => {
+        event.stopPropagation(); //阻止冒泡
+        if (chooseNum === 0) {
+            errorEl.style.display = "block";
+            return;
+        } else {
+            errorEl.style.display = "none";
+        }
+        checkBoxEl.classList.add("close");
+        tickBoxEl.classList.remove("close");
+        closeverify();
+    }
+
+    // 关闭验证层
+    const closeverify = () => {
+        var imgs = document.querySelectorAll(".verify-layer .imgs .img");
+        for (var img of imgs) {
+            var ico = img.nextElementSibling;
+            img.classList.remove("checked");
+            ico.classList.remove("checked");
+        }
+        errorEl.style.display = "none";
+        chooseNum = 0;
+        window.removeEventListener("click", onCloseverifyByBody);
+        verifyLayerEl.classList.add("close");
+    }
+
+    // 图片选择
+    const onClickImg = (event) => {
+        event.stopPropagation(); //阻止冒泡
+        var image = event.target;
+        var ico = image.nextElementSibling;
+        errorEl.style.display = "none";
+
+        if (image.classList.contains("checked")) {
+            image.classList.remove("checked");
+            ico.classList.remove("checked");
+            chooseNum--;
+        } else {
+            image.classList.add("checked");
+            ico.classList.add("checked");
+            chooseNum++;
+        }
+    }
+
+    // 恢复状态
+    const onReloadVerify = () => {
+        checkBoxEl.classList.remove("close");
+        tickBoxEl.classList.add("close");
+    }
+
+    // 设置界面
+    const onOpenSet = (event) => {
+        settingEl.style.animation = "setting-in 0.5s forwards";
+        settingEl.style.display = "";
+    }
+    const onCloseSet = (event) => {
+        settingEl.style.animation = "setting-out 0.5s forwards";
+        setTimeout(() => settingEl.style.display = "none", 500)
+    }
+    const onChangeValidation = () => {
+        validationEl.innerHTML = event.target.value;
+    }
+    const onChangeThing = () => {
+        thingEl.innerHTML = event.target.value;
+    }
+    const onChangeImg = (event, index) => {
+        // 获取文件
+        var file = event.target.files[0];
+        // 检查是不是图像类型
+        if (!file.type.match('image.*')) {
+            alert('请选择图像文件');
+            event.target.value = "";
+            return;
+        }
+        // 创建FileReader对象
+        var reader = new FileReader();
+        // 当文件读取完成时触发
+        reader.onload = function (e) {
+            // 将结果对应索引的图片
+            var imgs = document.querySelectorAll(".verify-layer .imgs .img");
+            var img = imgs[index];
+            img.src = e.target.result;
+        };
+        // 开始读取文件为DataURL
+        reader.readAsDataURL(file);
+    }
+</script>

@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --main-color: rgb(73, 144, 226);
+}
+
+.verify-box {
+    width: 320px;
+    margin: auto;
+    margin-top: 30px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 0;
+    border-radius: 3px;
+    box-shadow: 0 0 3px gray;
+    border: 1px solid rgb(209, 209, 209);
+    position: relative;
+}
+
+.verify-check-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    
+    width: 30px;
+    height: 26px;
+    border-radius: 3px;
+}
+
+.verify-check-box-border {
+    width: 26px;
+    height: 26px;
+    border-radius: 3px;
+    border: 2px solid rgb(195, 195, 195);
+}
+
+#validation{
+    margin-left: 10px;
+}
+
+.verify-box .ico {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: 10px;
+
+    text-align: right;
+    color: rgb(114, 114, 114);
+    font-size: small;
+}
+
+.verify-box .ico img {
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.verify-box .ico .rule{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+/* 验证层 */
+.verify-layer {
+    position: absolute;
+    width: 320px;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    box-shadow: 2px 2px 2px rgb(202, 202, 202);
+    border: 1px solid rgb(209, 209, 209);
+    padding: 0px;
+    z-index: 1;
+}
+
+.verify-layer .head {
+    width: calc(100% - 40px);
+    background-color: var(--main-color);
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.verify-layer .imgs {
+    width: calc(100% -10px);
+    height: 320px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3px;
+    margin: 5px;
+}
+
+.verify-layer .image-box {
+    overflow: hidden;
+    position: relative;
+}
+
+
+.verify-layer .image-box .img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.verify-layer .image-box .img.checked {
+    transform: scale(0.8);
+}
+
+.verify-layer .bottom {
+    border-top: 1px solid rgb(209, 209, 209);
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.verify-layer .bottom .icos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.verify-layer .bottom button {
+    width: 80px;
+    height: 30px;
+    border: 0;
+    border-radius: 2px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.verify-layer .bottom button:hover {
+    background-color: rgb(55, 119, 193);
+}
+
+.verify-layer #error {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(255, 74, 74);
+}
+
+.verify-layer .image-box .checked-ico {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    transition: 0.3s;
+}
+
+.verify-layer .image-box .checked-ico.checked {
+    display: block;
+}
+
+/* 三角形 */
+.verify-layer .triangle {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    left: 6px;
+    border-style: dashed dashed solid dashed;
+    border-width: 10px;
+}
+
+.verify-layer .triangle_bg {
+    z-index: 2;
+    top: -19px;
+    border-color: transparent transparent white transparent;
+}
+
+.verify-layer .triangle_border {
+    top: -20px;
+    border-color: transparent transparent rgb(209, 209, 209) transparent;
+}
+
+/* 加载动画 */
+.spinner {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--main-color);
+    border-left: 5px solid var(--main-color);
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin linear infinite;
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* 打钩动画 */
+.tick {
+    animation: tick 1s forwards;
+    stroke-dasharray: 100;
+    stroke-dashoffset: -100;
+}
+
+@keyframes tick {
+    from {
+        stroke-dashoffset: -100;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 所有元素的关闭状态 */
+.close {
+    display: none
+}
+
+
+/* 修改按钮 */
+.main-head {
+    width: 100%;
+    ;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.change-btn {
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.change-btn:hover {
+    background-color: rgb(56, 129, 212);
+}
+
+/* 设置 */
+.setting {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(174, 174, 174);
+
+    padding: 30px 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    animation: setting-in 0.5s forwards;
+}
+
+.setting div {
+    margin-bottom: 10px;
+}
+
+.setting input {
+    outline-style: none;
+    height: 26px;
+    width: calc(100% - 100px);
+    max-width: 400px;
+    margin-left: 10px;
+}
+
+.setting input[type=text] {
+    padding-left: 5px;
+    border: 1px solid gray;
+    color: white;
+    background-color: transparent;
+}
+
+.setting label {
+    display: inline-block;
+    width: 70px;
+    margin-bottom: 5px;
+}
+
+.setting .close-btn {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+@keyframes setting-in{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes setting-out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
