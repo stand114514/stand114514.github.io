@@ -20,6 +20,7 @@
 ## 开发参考
 
 - 打钩动画：https://ylface.com/web/1465.html
+- 加载动画：https://codepen.io/camdenfoucht/pen/BVxawq
 - 图标来源：https://iconpark.oceanengine.com/
 
 ## 开源协议
