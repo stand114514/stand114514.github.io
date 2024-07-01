@@ -15,7 +15,7 @@
 
 ## 演示地址
 
-[周常临.run](https://xn--miqz4ml5i.run/gugo)
+[周常临.run](https://xn--miqz4ml5i.run/gugo-verify)
 
 ## 开发参考
 
