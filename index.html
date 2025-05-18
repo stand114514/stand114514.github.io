@@ -70,7 +70,7 @@
         <div id="message-box">
             <div class="message-head">
                 <div class="message-head-content">
-                    <img id="back-img" @load="backImgLoad()" :src="backUrl" alt="" srcset="">
+                    <img id="back-img" @load="backImgLoad()" @error="backImgError()" :src="backUrl" alt="" srcset="">
                     <div>
                         <h1 class="title">黄基航收容所</h1><br>
                         <img src="hjh.png" width="100px" height="120px" alt="黄基航">
@@ -103,6 +103,7 @@
                     <div class="item">
                         <ul>
                             <li><b>友情链接</b></li>
+                            <li><a href="https://www.stand.homes">Stand</a></li>
                             <li><a href="https://github.com/stand114514/stand114514.github.io">本项目仓库</a></li>
                             <li><a href="https://github.com/SusakrTyan/SuskrTyan/">SuskrTyan</a></li>
                         </ul>
@@ -123,7 +124,7 @@
                         </ul>
                     </div>
                 </div>
-                Copyright © 2023 Stand
+                Copyright © 2023 - 2025 Stand
             </div>
         </div>
         <div class="right-box" v-show="right_show" :style="playMode">
@@ -174,15 +175,8 @@
             backUrl: ""
         },
         created() {
-            //设备信息
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-            //检查是否包含手机相关的关键字  
-            if (/Mobi|Android/i.test(userAgent)) {
-                this.backUrl = 'https://t.mwm.moe/mp';
-            } else {
-                this.backUrl = 'https://t.mwm.moe/pc';
-            }
+            // 图片api
+            this.backUrl = 'https://www.loliapi.com/acg/';
 
             // 获取事件
             axios.get('/events.json')
@@ -224,6 +218,23 @@
                     element.style.display = "none"; // 隐藏元素
                 }, 1000);
 
+            }, backImgError() {
+                //设备信息
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                // 检查是否包含手机相关的关键字
+                if (/Mobi|Android/i.test(userAgent)) {
+                    this.backUrl = 'index_img/back-mb.jpg';
+                } else {
+                    this.backUrl = 'index_img/back-pc.jpg';
+                }
+
+                var app = document.getElementById("app");
+                app.style.animation = "fade-in 1s ease-in-out both";
+                app.style.display = "";
+                setTimeout(() => {
+                    var element = document.getElementById("loadback");
+                    element.style.display = "none"; // 隐藏元素
+                }, 1000);
             }
         }
     })
